@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
 //= require underscore
-//= require gmaps/google
+
+// AIzaSyCj2C5TJ8rawKmjmEE55M0Id5lGl5G5SDw = google api key

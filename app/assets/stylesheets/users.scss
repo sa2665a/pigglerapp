@@ -2,20 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-	background-color:darkgray;
+
+#input-wrapper {
+	background-color: green;
+	width: 60%;
+	margin: auto;
 	
 }
 
-h2 {
-	color:green;
+.add_location {
+	margin-left: 50px;
+	color: white;
+	font-family: Comic Sans MS;
+
 }
 
-.field {
-	background-color:green;
-	color:white;
+input#get-places {
+	width: 300px;
+	text-align: center;
+	margin-left: 10%;
+	margin-bottom: 4px;
+
+}
+
+.request {
+	margin-left: 250px;
+	color: white;
 	font-family: Comic Sans MS;
-	font-size: 11px;
-	width:300px;
+	margin-bottom: 5px;
 
 }

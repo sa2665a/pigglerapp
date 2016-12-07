@@ -13,9 +13,27 @@
  *= require_tree .
  *= require_self
  */
+body {
+	background-color:darkgray;
+	
+}
+
+h2 {
+	color:green;
+}
+
+.field {
+	background-color:green;
+	color:white;
+	font-family: Comic Sans MS;
+	font-size: 11px;
+	width:300px;
+}
 
 a {
 	font-family: Comic Sans MS;
 	font-size: 12px;
 	color: blue;
 }
+
+

@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'users#profile'
   root to: 'users#profile'
+
+  get 'users/:user_id/orders/', to: 'orders#new'
+  post 'users/:user_id/orders/', to: 'orders#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

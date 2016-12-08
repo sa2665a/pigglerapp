@@ -1,6 +1,19 @@
+
 window.onload = function(){
 	var map;
 	var marker;
+
+	// $('#piggy').on ('click', function(event) {
+	// 	event.preventDefault();
+	// 	var searchTerm = $('#input-search').val();
+	// 	var myUrl = "/users/bookings";
+	// 	$.ajax ({
+	// 		type: "GET",
+	// 		url: myUrl,
+	// 		success: ,
+	// 		error: onError
+	// 	});
+	// });
 
 
 		if ("geolocation" in navigator){
@@ -90,9 +103,10 @@ window.onload = function(){
 					bounds.extend(deliveryLocations[i].latlng);
 				}
 				 map.fitBounds(bounds);
-				  marker.setMap(null);
+
 
 		  });
+
 		}
 
 		function randomLocations(locations){

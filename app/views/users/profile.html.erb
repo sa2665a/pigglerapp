@@ -10,9 +10,9 @@
 		  <div id="map" style="width: 70%; height: 400px; margin:auto">
 		  </div>
 		  	<div id= "input-wrapper">
-					<form class="request">
-			  		<input type="text" name="search" placeholder="min $15 max $200">
-						<button type="submit">Request Piggy!</button>
+					<form class="request" method="get" action="/users/<%= @user.id %>/orders">
+			  		<input type="text" name="search" id="input-search" placeholder="min $15 max $200">
+						<button type="submit" class="btn btn-success js-search">Search!</button>
 					</form>
 				</div>
   	</div>

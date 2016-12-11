@@ -1,21 +1,7 @@
 	<h2><%= current_user.name %>!</h2>
 	<strong>Email:</strong> <%= current_user.email %>
 		
-    <div id="input-wrapper">
-     		<p class= "add_location">Add Location
-        	<input type="text" name="get-places" id="get-places"> 
-      	</p>
-    </div>
-		<div>
-		  <div id="map" style="width: 70%; height: 400px; margin:auto">
-		  </div>
-		  	<div id= "input-wrapper">
-					<form class="request" method="get" action="/users/<%= @user.id %>/orders">
-			  		<input type="text" name="search" id="input-search" placeholder="min $15 max $200">
-						<button type="submit" class="btn btn-success js-search">Search!</button>
-					</form>
-				</div>
-  	</div>
+  <%= link_to "Request Cash", "/users/#{@user.id}/orders/new" %>
 
 
 

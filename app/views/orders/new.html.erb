@@ -1,1 +1,34 @@
-hola puta
+
+<h2>Request a Piggy Bank</h2>
+
+
+		
+    
+    </div>
+
+		<div>
+
+		  <div id="map" style="width: 60%; height: 400px; margin:auto">
+
+		</div>
+				<div id= "input-wrapper">
+				
+					<%= form_for [@user, @order]  do |f| %>
+						<br>
+						<%= f.label :source %>
+						<div id="input-wrapper">
+     		What is your location?
+        	<input type="text" name="get-places" id="get-places"> 
+     
+    </div>	
+
+						<%= f.text_field, ["get-places"] %>
+	
+						<%= f.label :amount %>
+						<%= f.number_field :amount %>
+
+						<%= f.button %>
+						
+					<% end %>	
+				</div>
+  	</div>

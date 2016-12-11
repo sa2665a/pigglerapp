@@ -1,0 +1,36 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<h1><%= @user.name %></h1>
+<p><%= @user.email%></p>
+
+<h2>Current Pigglers' Orders are :</h2> 
+
+
+
+<ul>
+	<% @orders.each  do |order| %>
+	
+	<li>
+		Order of: $ <%=  order.amount %>
+							
+  </li>
+
+ <% end %>
+
+<script>
+function outputLocation() {
+	var x,y,name;
+	x = document.getElementById("locations");
+	y= x.elements["get-places"].value
+	document.getElementById("demo").innerHTML= "The Location is" + y;
+
+}
+
+</script>
+
+
+ 
+
+ 
+
+
+<%= link_to 'Request Again', "/users/#{@user.id}/orders/new" %>

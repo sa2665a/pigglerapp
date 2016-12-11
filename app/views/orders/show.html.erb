@@ -1,0 +1,23 @@
+
+
+<h2>Current Piggler Order :</h2> 
+
+
+
+<ul>
+
+	<li>
+		<strong>Order Amount:</strong> <%= @order.amount %><br>
+	</li>
+	<% if can? :destroy, @order %>  
+	<button><%= link_to('Received', user_order_path(@user,@order), method: :delete, data:{confirm: 'Now you will be charged to your credit card'}) %></button>
+	 <% end %>
+
+
+</ul>
+
+
+
+
+
+<%= link_to 'Request Again', "/users/#{@user.id}/orders/new" %>

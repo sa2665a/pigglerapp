@@ -1,22 +1,12 @@
 
-window.onload = function(){
+window.onload = function initialize(){
+
 	var map;
-	var marker;
-
-	// $('#piggy').on ('click', function(event) {
-	// 	event.preventDefault();
-	// 	var searchTerm = $('#input-search').val();
-	// 	var myUrl = "/users/bookings";
-	// 	$.ajax ({
-	// 		type: "GET",
-	// 		url: myUrl,
-	// 		success: ,
-	// 		error: onError
-	// 	});
-	// });
-
+	var markers = [];
+	var locations = [];
 
 		if ("geolocation" in navigator){
+
 		  navigator.geolocation.getCurrentPosition(onLocation, onError);
 		}
 
@@ -34,7 +24,7 @@ window.onload = function(){
 		function onError(err){
 		  console.log("What are you using, IE 7??", err);
 		}
-		
+  
 
 		function createMap(position){
 		  var mapOptions = {
@@ -45,34 +35,50 @@ window.onload = function(){
 		  map = new google.maps.Map($('#map')[0], mapOptions);
 		  createMarker(position);
 
+		  
 		}
 
 		function createMarker(position) {
+
 		  var marker = new google.maps.Marker({
 		    position: position,
-		    map: map 
-		  })	
-		
+		    map: map,
+		  });
+
+		  markers.push(marker);
+	
+    }
+
+    function setMapOnAll(map) {
+		  for (var i = 0; i < markers.length; i++) {
+		    markers[i].setMap(map);
+		  }
 		}
 
+
+		 
+
 		function setupAutocomplete(){
-		  var input = $('#get-places')[0];
+		  var input        = $('#get-places')[0];
 		  var autocomplete = new google.maps.places.Autocomplete(input);
 
 		  autocomplete.addListener('place_changed', function(){
 
+
+		  	
 		    var place = autocomplete.getPlace();
-		    if (place.geometry.location) {
-		      map.setCenter(place.geometry.location);
-		      createMarker(place.geometry.location);
-		      map.setZoom(12);   
-
-		    } else {
-		      alert("The place has no location...?")
-		    }
+			    if (place.geometry.location) {
+			      map.setCenter(place.geometry.location);
+			      setMapOnAll(null)
+			      createMarker(place.geometry.location);
+			      map.setZoom(12); 
 
 
-				var locations = [];
+			    } else {
+			      alert("The place has no location...?")
+			    }
+
+			
 					locations.push ( {latlng: new google.maps.LatLng(40.419989, -3.688194)});
 					locations.push ( {latlng: new google.maps.LatLng(40.429989, -3.688194)});
 					locations.push ( {latlng: new google.maps.LatLng(40.452191, -3.687864)});
@@ -91,34 +97,56 @@ window.onload = function(){
 					locations.push ( {latlng: new google.maps.LatLng(40.401888,	-3.720646)});
 
 				var deliveryLocations = randomLocations(locations);
+
+
+
 				console.log(deliveryLocations);
-				
-				
 
 				
 				var bounds= new google.maps.LatLngBounds();
 
 				for (var i=0; i<deliveryLocations.length;i++){
-					var marker = new google.maps.Marker({position:deliveryLocations[i].latlng, map:map});
+					
+
+					var image = {
+						url:"https://cdn3.iconfinder.com/data/icons/shopping-icons-1/512/Piggy_Bank-512.png",
+						scaledSize: new google.maps.Size(40, 40)
+					};
+
+					var marker = new google.maps.Marker({
+						position:deliveryLocations[i].latlng,
+						map:map,
+						icon:image
+					});
+
+					locations.push(marker)
 					bounds.extend(deliveryLocations[i].latlng);
-				}
-				 map.fitBounds(bounds);
+					}
 
-
+				map.fitBounds(bounds);
+				
 		  });
-
 		}
+	
 
 		function randomLocations(locations){
 
+
 	    for (var i = locations.length - 1; i > 0; i--) {
-	        var j = Math.floor(Math.random() * (i + 1));
-	        var temp = locations[i];
+	        var j        = Math.floor(Math.random() * (i + 1));
+	        var temp     = locations[i];
 	        locations[i] = locations[j];
-	        locations[j] = temp;
+	        locations[j] = temp;   
 			}
+
 			return locations.slice(0,6);
+	
+
 		}
-		
+	
 
 }
+
+
+
+

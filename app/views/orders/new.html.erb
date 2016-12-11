@@ -2,11 +2,17 @@
 <h2>Request a Piggy Bank</h2>
 
 
-		
+	<!-- 	<form id = "location" action= "orders">
+ 		<div id="input-wrapper">
+     		What is your location?
+        	<input type="text" name="get-places" id="get-places"> 
+    </form>	 -->
     
     </div>
 
 		<div>
+
+		
 
 		  <div id="map" style="width: 60%; height: 400px; margin:auto">
 
@@ -15,14 +21,14 @@
 				
 					<%= form_for [@user, @order]  do |f| %>
 						<br>
-						<%= f.label :source %>
+						<%= f.label "Location" %> 
 						<div id="input-wrapper">
-     		What is your location?
-        	<input type="text" name="get-places" id="get-places"> 
+     					What is your location?
+        			<input type="text" name="get-places" id="get-places"> 
      
-    </div>	
+    				</div>	
 
-						<%= f.text_field, ["get-places"] %>
+						<%= f.text_field = id: %>
 	
 						<%= f.label :amount %>
 						<%= f.number_field :amount %>

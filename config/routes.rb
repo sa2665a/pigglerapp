@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/orders/new', to: 'orders#new'
   post 'users/:user_id/orders/', to: 'orders#create', as: :user_orders
   get '/users/:user_id/orders/', to: 'orders#index'
+  get '/users/:user_id/piggy_orders/', to: 'orders#piggy_index'
   get '/users/:user_id/orders/:id', to: 'orders#show'
   delete '/users/:user_id/orders/:id', to: 'orders#destroy', as: :user_order 
 

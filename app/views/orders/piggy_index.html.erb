@@ -7,10 +7,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">PIGGLER</a>
+      <a class="navbar-brand" href="/">PIGGLER</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
@@ -42,22 +40,24 @@
   </div>
 </nav>
 
-<h2>Current Piggler Order :</h2> 
-
-<ul>
-
-	<li>
-		<strong>Order Amount:</strong> <%= @order.amount %><br>
-	</li>
-	<% if can? :destroy, @order %>  
-	<button><%= link_to('Received', user_order_path(@user,@order), method: :delete, data:{confirm: 'Now you will be charged to your credit card'}) %></button>
-	 <% end %>
 
 
-</ul>
+<table class="table table-striped tabl ">
+  <thead>
+    <tr class="success">
+      <th>Order Amount</th>
+      <th>Location</th>
+      <th>Extra </th>
 
+     </tr>
+  </thead>
+   <tbody>
+    <tr>
+      <% @orders.each  do |order| %>
+				<td><%= order.amount %> </td>
+				<td><%= order.source %> </td>
+				<td><%= link_to 'More Info', "/users/#{@user.id}/orders/#{order.id}" %></td>	
 
-
-
-
-<%= link_to 'Request Again', "/users/#{@user.id}/orders/new" %>
+    </tr>
+    <% end %>	 
+  </tbody>

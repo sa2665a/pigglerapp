@@ -1,20 +1,76 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<nav class="navbar navbar-inverse">
+  
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">PIGGLER</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+         <li class="active"><a href="/users/:user_id/orders/">Orders<span class="sr-only"></span></a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+          <% else %>
+        
+
+        <%= link_to 'Sign_up', new_user_registration_path %> | 
+        <%= link_to 'Sign_in', new_user_session_path %> 
+        
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <h1><%= @user.name %></h1>
 <p><%= @user.email%></p>
 
+<%= link_to 'Request Again', "/users/#{@user.id}/orders/new", :class =>"btn btn-success" %>
+
 <h2>Current Pigglers' Orders are :</h2> 
 
+<table class="table table-striped tabl ">
+  <thead>
+    <tr class="success">
+      <th>Order Amount</th>
+      <th>Location</th>
+      <th>Extra </th>
 
+     </tr>
+  </thead>
+   <tbody>
+    <tr>
+      <% @orders.each  do |order| %>
+				<td><%= order.amount %> </td>
+				<td><%= order.source %> </td>
+				<td><%= link_to 'More Info', "/users/#{@user.id}/orders/#{order.id}" %></td>	
 
-<ul>
-	<% @orders.each  do |order| %>
-	
-	<li>
-		Order of: $ <%=  order.amount %>
-							
-  </li>
+    </tr>
+    <% end %>	 
+  </tbody>
 
- <% end %>
+				
+			
+
+ 
 
 // <script>
 // function outputLocation() {
@@ -30,7 +86,7 @@
 
  
 
- 
 
 
-<%= link_to 'Request Again', "/users/#{@user.id}/orders/new" %>
+
+

@@ -13,13 +13,17 @@
  *= require_tree .
  *= require_self
  */
-body {
-	background-color:darkgray;
-	
-}
+
+@import "bootstrap-sprockets";
+@import "bootswatch/darkly/variables";
+@import "bootstrap";
+@import "bootswatch/darkly/bootswatch";
+
+
+
 
 h2 {
-	color:green;
+	color:#00bc8c;
 }
 
 .field {
@@ -30,10 +34,49 @@ h2 {
 	width:300px;
 }
 
-a {
-	font-family: Comic Sans MS;
-	font-size: 12px;
-	color: blue;
+.navbar {
+	position: absolute;
+	top:0;
+	width: 100%;
 }
+
+.create {
+	background-color: green;
+
+}
+
+#welcome {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 28px;
+}
+
+#error {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 28px;
+}
+
+.button {
+	background-color: green;
+}
+
+#images-pig {
+	width: 110px;
+	height: 100px;
+	margin: auto;
+}
+
+#text-intro {
+	font-size: 14px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; 
+  clear:both;
+  padding-top:20px;
+  background-color: black;
+} 
 
 

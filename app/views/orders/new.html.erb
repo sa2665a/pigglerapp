@@ -1,4 +1,6 @@
 
+   
+    
 <h2>Request a Piggy Bank</h2>
 		<div id="input-wrapper">
      					What is your location?
@@ -21,11 +23,11 @@
             <% end %>
           </ul>
         <% end %>
-				<br>
+			
 				<%= f.label "Location" %> 
-				
-				<%= f.text_field :source %>
 
+				<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
+        
 				<%= f.label :amount %>
 				<%= f.number_field :amount %>
 

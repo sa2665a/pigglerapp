@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/users/:user_id/orders/:id', to: 'orders#show'
   delete '/users/:user_id/orders/:id', to: 'orders#destroy', as: :user_order 
 
+  get "/pages/:page" => "pages#show"
+
   #match 'orders/complete' => 'orders#complete' :via => post
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

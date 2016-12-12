@@ -2,26 +2,28 @@
 	var map;
 	var markers = [];
 	var locations = [];
+	var loaded = false;
 
-// window.onload = function initialize(){
 $(document).ready(function(){
-
-	if ("geolocation" in navigator){
+	setupAutocomplete();
+	
+	if ("geolocation" in navigator) {
 	  navigator.geolocation.getCurrentPosition(onLocation, onError);
 	}
-	
+
 });
-// }
 
 function onLocation(position){
-
   var myPosition = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
+if (!loaded) createMap(myPosition);
+ 
+}
 
-  createMap(myPosition);
-  setupAutocomplete();
+function centerMap(position) {
+	map.setCenter(position);
 }
 
 function onError(err){
@@ -34,11 +36,8 @@ function createMap(position){
     center: position,
     zoom: 15
   };
-
   map = new google.maps.Map($('#map')[0], mapOptions);
   createMarker(position);
-
-  
 }
 
 function createMarker(position) {
@@ -49,7 +48,7 @@ function createMarker(position) {
   });
 
   markers.push(marker);
-
+  return marker;
 }
 
 function setMapOnAll(map) {

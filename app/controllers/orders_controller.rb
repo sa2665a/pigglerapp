@@ -7,10 +7,8 @@ class OrdersController < ApplicationController
 
 	def piggy_index
 		@user = current_user
-		@orders = Order.where.not(user_id:true)
-		#where(:user_id != current_user.id)
-		#  - @user.orders.all
-		# 
+		@orders = Order.where.not(user_id:@user.id)
+		
 	end
 
 	def new
@@ -32,21 +30,24 @@ class OrdersController < ApplicationController
 		end
 	end
 
- #  def update
-	# 	@user = User.find_by(id: params[:user_id])
-	# 	@order = Order.find_by(id: params[:id])
+  def update
+		@user = User.find_by(id: params[:user_id])
+		@order = Order.find_by(id: params[:id])
 
-	# 	if @order.update(order_params)
-	# 		redirect_to "/users/#{@user.id}/orders"
-	# 	else
-	# 	render "new"
-	# 	end	
+			if @order.update({
+				minutes: params[:order][:minutes]
+				});
+		redirect_to "/users/#{@user.id}/orders/#{@order.id}"
+		else
+		render "/users/profile"
+		end	
 
-	# end
+	end
 
   def show
   	@user = current_user
 		@order = Order.find_by(id: params[:id])
+		@user_orderer = User.find_by(id: @order.user_id)
 
 		unless @order
 			render "order_not_found"
@@ -60,6 +61,22 @@ class OrdersController < ApplicationController
 		@order.destroy
 
 		redirect_to "/users/#{@user.id}/orders/new"
+	end
+
+	def piggy_order
+		@user = User.find_by_id(params[:user_id])
+		@user.orders.new({
+			amount: params[:order][:amount],
+			source: params[:order][:source]})
+			
+		if @user.save
+			redirect_to("/users/#{@user.id}/orders/:id")
+		else
+			@order = @user.orders.new
+			render "new"
+		end
+
+
 	end
 
 

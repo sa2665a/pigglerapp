@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users
 
   get 'profile', to: 'users#profile'
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   get '/users/:user_id/orders/', to: 'orders#index'
   get '/users/:user_id/piggy_orders/', to: 'orders#piggy_index'
   get '/users/:user_id/orders/:id', to: 'orders#show'
-  delete '/users/:user_id/orders/:id', to: 'orders#destroy', as: :user_order 
+  delete '/users/:user_id/orders/:id', to: 'orders#destroy', as: :user_order
+  patch  'users/:user_id/orders/:id', to: 'orders#update'
 
   get "/pages/:page" => "pages#show"
 

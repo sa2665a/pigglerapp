@@ -11,12 +11,13 @@
      </tr>
   </thead>
    <tbody>
-    <tr>
-      <% @orders.each  do |order| %>
-				<td><%= order.amount %> </td>
-				<td><%= order.source %> </td>
-				<td><%= link_to 'More Info', "/users/#{@user.id}/orders/#{order.id}" %></td>	
-
-    </tr>
-    <% end %>	 
-  </tbody>
+      <tr>
+        <% @orders.each  do |order| %>
+  				<td><%= order.amount %> </td>
+  				<td><%= order.source %> </td>
+  				<td><%= link_to 'Delivery Info', "/users/#{@user.id}/orders/#{order.id}" %></td>	
+   
+      </tr>
+      <% end %> 
+   </tbody>
+</table>

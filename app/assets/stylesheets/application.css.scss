@@ -19,23 +19,44 @@
 @import "bootstrap";
 @import "bootswatch/darkly/bootswatch";
 
-.nav.navbar-nav.navbar-right2 {
-    width: 70vw;
+.navbar-right2 {
+    margin-top: 10px;
+    margin-right: 200px;
+    float: right;
   }
+
+.sign-up {
+	position:absolute;
+	margin-top: 100px;
+	margin-left: 30px; 
+}
 
 h2 {
 	color:#00bc8c;
+}
+
+.image-home {
+	width: 600px;
+	height: 400px;
+	float:right;
+	margin-top: 150px;
+	margin-right: 220px;
+}
+
+.image-navbar{
+	width:90px;
+	height:60px;
 }
 
 h4 {
 	color:#00bc8c;
 }
 
+
 .field {
-	background-color:green;
 	color:white;
 	font-family: Comic Sans MS;
-	font-size: 11px;
+	font-size: 12px;
 	width:300px;
 }
 
@@ -77,11 +98,15 @@ h4 {
 }
 
 .footer {
-  position: relative;
-  margin-top: -150px; 
+  position: inherit;
+  bottom: 0; 
   clear:both;
   padding-top:20px;
   background-color: black;
 } 
 
+.col-md-10.pig-error {
+margin-top: 300px;
+	margin:auto;
+}
 

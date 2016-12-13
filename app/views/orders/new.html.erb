@@ -2,6 +2,7 @@
    
     
 <h2>Request a Piggy Bank</h2>
+<div>
 		<div id="input-wrapper">
      					What is your location?
         			<input type="text" name="get-places" id="get-places"> 
@@ -29,9 +30,11 @@
 				<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
         
 				<%= f.label :amount %>
-				<%= f.number_field :amount %>
+				<%= f.number_field :amount, placeholder: "Maximum of $200" %>
 
 				<%= f.button "Request Piggy", :class => "btn btn-success"%>
 				
 			<% end %>	
 		</div>
+    <hr>
+</div>

@@ -3,25 +3,22 @@
   <head>
     <title>PigglerApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all'%>
     
   </head>
 
   <body>
-   <% if user_signed_in? %>
-            <%= render "layouts/navbar" %>    
-   <% end %>
-
-  	<p class="notice"><%= notice %></p>
+    <%= render "layouts/navbar" %>    
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    
-
     <%= yield %>
- <script src="https://maps.googleapis.com/maps/api/js?v=3.25&libraries=places,geometry&key=AIzaSyCj2C5TJ8rawKmjmEE55M0Id5lGl5G5SDw"></script>
-<%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.25&libraries=places,geometry&key=AIzaSyCj2C5TJ8rawKmjmEE55M0Id5lGl5G5SDw"></script>
 
+    <div class="footer">
+      <footer class="footer">
+      <p>© 2016 PigglerApp</p>
+    </footer> 
+    </div>
   </body>
-
 </html>

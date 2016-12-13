@@ -7,13 +7,16 @@
 		<strong>Order Amount: $ </strong> <%= @order.amount %><br>
 		<strong>Piggler's Location:</strong> <%= @order.source %> <br>
 		<strong>	Order from:</strong> <%= @user_orderer.name %> <br>
-
+				
 			<strong>Approximate Time of Arrival of a Piggy: </strong><%= @order.minutes%><strong> minutes</strong>
+			
+			
 	</li>
 	<br>
 </ul>
 	<hr>
 
+<% if @user != @user_orderer %>
 	<%= form_for [@user, @order] do |f| %>
 					<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
         
@@ -23,7 +26,7 @@
 				<%= f.button "Post Piggy", :class => "btn btn-success"%>
 				
 			<% end %>	
-
+<%end %>
 <hr>
 
 <%= link_to 'Request Again', "/users/#{@user.id}/orders/new", :class => "btn btn-success" %>

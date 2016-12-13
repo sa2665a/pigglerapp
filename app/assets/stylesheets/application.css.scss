@@ -19,6 +19,7 @@
 @import "bootstrap";
 @import "bootswatch/darkly/bootswatch";
 
+
 .navbar-right2 {
     margin-top: 10px;
     margin-right: 200px;
@@ -44,8 +45,8 @@ h2 {
 }
 
 .image-navbar{
-	width:90px;
-	height:60px;
+	width:inherit;
+	height:60px
 }
 
 h4 {
@@ -110,3 +111,6 @@ margin-top: 300px;
 	margin:auto;
 }
 
+.info-image {
+	width: 900px;
+}

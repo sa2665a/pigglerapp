@@ -14,7 +14,6 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-           <li class="active"><a href="/pages/about">About<span class="sr-only"></span></a></li>
         </ul>
         
         <ul class="navbar-right2">
@@ -24,6 +23,8 @@
               <%= f.email_field :email, autofocus: true %>
               <%= f.label :password %>
               <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.submit "Log in" %>
+                
             </div>
               <div class= "col-md-12 log-in">
               <% if devise_mapping.rememberable? -%>
@@ -36,9 +37,6 @@
                   <%= link_to "Forgot your password?", new_password_path(resource_name) %>
               <% end -%>
               </div>
-                <div class="actions">
-                <%= f.submit "Log in" %>
-                </div>
                 <% end %>
               </div>      
         </ul>
@@ -52,7 +50,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="fform-group">
+      <div class="form-group">
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true %>
       </div>

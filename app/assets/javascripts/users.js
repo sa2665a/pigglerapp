@@ -96,10 +96,6 @@ function setupAutocomplete(){
 
 		var deliveryLocations = randomLocations(locations);
 
-
-
-		console.log(deliveryLocations);
-
 		
 		var bounds= new google.maps.LatLngBounds();
 
@@ -118,6 +114,7 @@ function setupAutocomplete(){
 			});
 
 			locations.push(marker)
+
 			bounds.extend(deliveryLocations[i].latlng);
 			}
 
@@ -125,7 +122,6 @@ function setupAutocomplete(){
 		
   });
 }
-	
 
 function randomLocations(locations){
 
@@ -138,9 +134,5 @@ function randomLocations(locations){
 
 	return locations.slice(0,6);
 }
-
-
-
-
 
 

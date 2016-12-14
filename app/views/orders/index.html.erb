@@ -16,13 +16,13 @@
 
      </tr>
   </thead>
+
    <tbody>
-    <tr>
-      <% @orders.each  do |order| %>
+    <% @orders.each  do |order| %>
+    <tr data-link="<%="/users/#{@user.id}/orders/#{order.id}"%>">
 				<td><%= order.amount %> </td>
 				<td><%= order.source %> </td>
 				<td><%= link_to 'More Info', "/users/#{@user.id}/orders/#{order.id}" %></td>	
-
     </tr>
     <% end %>	 
   </tbody>

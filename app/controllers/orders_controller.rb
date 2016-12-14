@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
 	
 	def index
-		@user = User.find_by_id(params[:user_id])
-		@orders = @user.orders.all
+			@user = User.find_by_id(params[:user_id])
+			@orders = @user.orders.all
 	end
 
 	def piggy_index
 		@user = current_user
 		@orders = Order.where.not(user_id:@user.id)
-		
 	end
 
 	def new
@@ -17,7 +16,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		@user = User.find_by_id(params[:user_id])
+		@user = current_user
 		@user.orders.new({
 			amount: params[:order][:amount],
 			source: params[:order][:source]})
@@ -26,7 +25,7 @@ class OrdersController < ApplicationController
 			redirect_to("/users/#{@user.id}/orders")
 		else
 			@order = @user.orders.new
-			render "new"
+			redirect_to "new"
 		end
 	end
 
@@ -41,18 +40,17 @@ class OrdersController < ApplicationController
 		else
 		render "/users/profile"
 		end	
-
 	end
 
   def show
   	@user = current_user
 		@order = Order.find_by(id: params[:id])
-		@user_orderer = User.find_by(id: @order.user_id)
-
+		if @order
+			@user_orderer = User.find_by(id: @order.user_id)
+		end
 		unless @order
 			render "order_not_found"
 		end
-
 	end
 
 	def destroy
@@ -75,8 +73,6 @@ class OrdersController < ApplicationController
 			@order = @user.orders.new
 			render "new"
 		end
-
-
 	end
 
 

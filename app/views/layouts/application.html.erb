@@ -4,19 +4,17 @@
     <title>PigglerApp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
-    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC02n50OZ-caxOl402BAgExv-cGXEyMXrE&libraries=places"></script>
   </head>
 
   <body>
     <% if user_signed_in?%>
-    <%= render "layouts/navbar" %>    
+      <%= render "layouts/navbar" %>    
+    <% end %>
+    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  <% end %>
-    <%= yield %>
     <%= javascript_include_tag 'application' %>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.25&libraries=places,geometry&key=AIzaSyCj2C5TJ8rawKmjmEE55M0Id5lGl5G5SDw"></script>
-
     <div class="footer">
       <footer class="footer">
       <p>© 2016 PigglerApp</p>

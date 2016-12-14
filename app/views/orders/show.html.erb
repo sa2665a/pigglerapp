@@ -1,5 +1,3 @@
-
-
 <h2>Current Piggler Order :</h2> 
 
 <ul>
@@ -7,28 +5,23 @@
 		<strong>Order Amount: $ </strong> <%= @order.amount %><br>
 		<strong>Piggler's Location:</strong> <%= @order.source %> <br>
 		<strong>	Order from:</strong> <%= @user_orderer.name %> <br>
-				
-			<strong>Approximate Time of Arrival of a Piggy: </strong><%= @order.minutes%><strong> minutes</strong>
-			
-			
+		<% if @order.minutes != nil %>
+		<strong>Approximate Time of Arrival of a Piggy: </strong><%= @order.minutes%><strong> minutes</strong> <br>
+		<% end %>
+		<% if can? :destroy, @order %>
+			<%= link_to('Received', user_order_path(@user,@order), :class => "btn btn-success", method: :delete, data:{confirm: 'Now you will be charged to your credit card!'}) %>		
+		<% end %>
 	</li>
-	<br>
 </ul>
-	<hr>
-
-<% if @user != @user_orderer %>
-	<%= form_for [@user, @order] do |f| %>
-					<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
-        
-				<%= f.label "Approximate time from Piggler?" %>
-				<%= f.number_field :minutes%>
-
-				<%= f.button "Post Piggy", :class => "btn btn-success"%>
-				
-			<% end %>	
-<%end %>
 <hr>
+<% if @user != @user_orderer %>
+		<%= form_for [@user, @order] do |f| %>
+			<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
+			<%= f.label "Approximate time from Piggler?" %>
+			<%= f.number_field :minutes%>
+			<%= f.button "Post Piggy", :class => "btn btn-success"%>
+		<% end %>	
+<%end %>
 
 <%= link_to 'Request Again', "/users/#{@user.id}/orders/new", :class => "btn btn-success" %>
-
 <hr>

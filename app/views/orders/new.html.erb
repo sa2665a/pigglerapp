@@ -1,40 +1,34 @@
-
-   
     
 <h2>Request a Piggy Bank</h2>
-<div>
-		<div id="input-wrapper">
-     					What is your location?
-        			<input type="text" name="get-places" id="get-places"> 
+  <div>
+  	<div id="input-wrapper">
+       					What is your location?
+          			<input type="text" name="get-places" id="get-places"> 
     </div>	
-		<div id="map" style="width: 60%; height: 400px; margin:auto">
-
-		</div>
-		<div id= "input-wrapper">
-		
-			<%= form_for [@user, @order]  do |f| %>
-        <% if @user.errors.any? || @order.errors.any? %>
-        <h3>Errors:</h3>
-          <ul>
-             <% @user.errors.full_messages.each do |usermessage| %>
-              <li><%= usermessage %></li>
+  		<div id="map" style="width: 60%; height: 400px; margin:auto"> </div>
+  		
+      <div id= "input-wrapper">
+  		
+  			<%= form_for [@user, @order]  do |f| %>
+          <% if @user.errors.any? || @order.errors.any? %>
+          <h3>Errors:</h3>
+            <ul>
+               <% @user.errors.full_messages.each do |usermessage| %>
+                <li><%= usermessage %></li>
+                <% end %>
+              <% @order.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
               <% end %>
-            <% @order.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        <% end %>
-			
-				<%= f.label "Location" %> 
-
-				<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
-        
-				<%= f.label :amount %>
-				<%= f.number_field :amount, placeholder: "Maximum of $200" %>
-
-				<%= f.button "Request Piggy", :class => "btn btn-success"%>
-				
-			<% end %>	
-		</div>
+            </ul>
+          <% end %>
+    				<%= f.label "Location" %> 
+    				<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
+    				<%= f.label "Amount: $" %>
+    				<%= f.number_field :amount, placeholder: "Maximum of $200" %>
+    				<%= f.button "Request Piggy", :onclick => "validateField();", :class => "btn btn-success"%>
+  			<% end %>	
+      </div>
     <hr>
-</div>
+  </div>
+
+

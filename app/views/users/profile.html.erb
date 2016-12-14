@@ -11,7 +11,7 @@
 <div class="container">
       <div class="row">
           <div class="col-md-6">
-            <img src="/user.png" id="images-pig">
+            <%=link_to image_tag("/user.png"), "/users/#{@user.id}/orders/new" %>
             <h2>Request Cash!</h2>
             <div class = "col-md-8 info-text">
               <p id="text-intro">Need cash? Ask for cash to people around you. The Piggy Banks in your area will deliver the amount you requested as soon as possible.</p>
@@ -20,7 +20,7 @@
           </div>
         
         <div class="col-md-6">
-          <img src="/deliver.png" id="images-pig">
+           <%=link_to image_tag("/deliver.png"), "/users/#{@user.id}/piggy_orders/" %>
           <h2>Deliver Cash!</h2>
           <div class = "col-md-8 info-text">
             <p id="text-intro"> Do you have cash with you and want to lend it to someone near by? Just enter in here and see who is in your area in need of cash. </p>

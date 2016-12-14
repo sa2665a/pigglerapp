@@ -1,16 +1,17 @@
 
-	var map;
-	var markers = [];
-	var locations = [];
-	var loaded = false;
+var map;
+var markers = [];
+var locations = [];
+var loaded = false;
 
 $(document).ready(function(){
-	setupAutocomplete();
-	
-	if ("geolocation" in navigator) {
-	  navigator.geolocation.getCurrentPosition(onLocation, onError);
-	}
-
+  if(window.location.pathname.includes("/orders/new")) {
+      setupAutocomplete();
+      
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(onLocation, onError);
+      }
+  }
 });
 
 function onLocation(position){
@@ -18,8 +19,7 @@ function onLocation(position){
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
-if (!loaded) createMap(myPosition);
- 
+	if (!loaded) createMap(myPosition);
 }
 
 function centerMap(position) {
@@ -30,14 +30,15 @@ function onError(err){
   console.log("What are you using, IE 7??", err);
 }
 
-
 function createMap(position){
   var mapOptions = {
     center: position,
     zoom: 15
   };
+
   map = new google.maps.Map($('#map')[0], mapOptions);
   createMarker(position);
+
 }
 
 function createMarker(position) {
@@ -49,6 +50,13 @@ function createMarker(position) {
 
   markers.push(marker);
   return marker;
+
+  	var bounds= new google.maps.LatLngBounds();
+	  	for (var i = 0; i < markers.length; i++) {
+				bounds.extend(markers[i].getPosition());
+ 			}
+
+ 		map.fitBounds(bounds);	
 }
 
 function setMapOnAll(map) {
@@ -95,32 +103,24 @@ function setupAutocomplete(){
 			locations.push ( {latlng: new google.maps.LatLng(40.401888,	-3.720646)});
 
 		var deliveryLocations = randomLocations(locations);
-
 		
-		var bounds= new google.maps.LatLngBounds();
+	
 
 		for (var i=0; i<deliveryLocations.length;i++){
-			
-
 			var image = {
 				url:"https://cdn3.iconfinder.com/data/icons/shopping-icons-1/512/Piggy_Bank-512.png",
 				scaledSize: new google.maps.Size(40, 40)
 			};
-
 			var marker = new google.maps.Marker({
 				position:deliveryLocations[i].latlng,
 				map:map,
 				icon:image
 			});
-
 			locations.push(marker)
+		}
 
-			bounds.extend(deliveryLocations[i].latlng);
-			}
-
-		map.fitBounds(bounds);
-		
   });
+
 }
 
 function randomLocations(locations){
@@ -131,8 +131,5 @@ function randomLocations(locations){
       locations[i] = locations[j];
       locations[j] = temp;   
 	}
-
 	return locations.slice(0,6);
 }
-
-

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-	
+	before_action :authenticate_user!
 	def index
-			@user = User.find_by_id(params[:user_id])
+			@user = current_user
 			@orders = @user.orders.all
 	end
 
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find params[:user_id]
+		@user = current_user
 		@order = Order.find_by(id: params[:id])
 		@order.destroy
 
@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
 	end
 
 	def piggy_order
-		@user = User.find_by_id(params[:user_id])
+		@user = current_user
 		@user.orders.new({
 			amount: params[:order][:amount],
 			source: params[:order][:source]})

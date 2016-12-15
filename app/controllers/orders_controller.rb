@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
 			redirect_to("/users/#{@user.id}/orders")
 		else
 			@order = @user.orders.new
-			redirect_to "/users/#{@user.id}/orders/new"
+			redirect_to "new"
 		end
 
 	end

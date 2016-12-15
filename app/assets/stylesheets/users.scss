@@ -13,7 +13,12 @@
 	margin-left: 50px;
 	color: white;
 	font-family: Comic Sans MS;
+}
 
+.requests {
+	float:right;
+	display:block;
+	margin-right: 150px;
 }
 
 input#get-places {
@@ -21,9 +26,18 @@ input#get-places {
 	text-align: center;
 	margin-left: 10%;
 	margin-bottom: 4px;
-
 }
 
+#welcome {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 28px;
+}
+
+#text-intro {
+	font-size: 14px;
+	text-align:left;
+}
 
 input#search{
 	margin-bottom: 4px;
@@ -33,4 +47,21 @@ input#search{
 #piggy {
 	width: 120px;
 	height: 18px;		
+}
+
+span {
+	margin-left:100px;
+}
+
+.amount-text {
+	margin-left:180px;
+	margin-top: 10px;
+}
+
+#order_amount {
+	margin-left:20px;
+}
+
+.btn.btn-success2 {
+	margin-left: 55px;
 }

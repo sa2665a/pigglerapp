@@ -21,7 +21,9 @@
 
 body {
 	padding-top: 80px;
+	background-image: url("/Picture2.png");
 }
+
 .navbar-right2 {
     margin-top: 10px;
     margin-right: 200px;
@@ -34,25 +36,26 @@ body {
 	margin-left: 30px; 
 }
 
+h1 {
+	color:#00BC8C;
+}
+
 h2 {
-	color:#00bc8c;
+	color:#00BC8C;
+
 }
 
 .image-home {
-	width: 600px;
-	height: 400px;
+	width: 800px;
+	height: 600px;
 	float:right;
-	margin-top: 150px;
-	margin-right: 220px;
+	margin-top: 120px;
+	margin-right: 130px;
 }
 
 .image-navbar{
 	width:inherit;
 	height:60px
-}
-
-h4 {
-	color:#00bc8c;
 }
 
 
@@ -71,19 +74,6 @@ h4 {
 
 .create {
 	background-color: green;
-
-}
-
-#welcome {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	font-size: 28px;
-}
-
-#error {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	font-size: 28px;
 }
 
 .button {
@@ -94,46 +84,14 @@ img {
 	width: 110px;
 	height: 100px;
 	margin: auto;
-}
-
-#text-intro {
-	font-size: 14px;
+	vertical-align: super;
 }
 
 .footer {
   position: inherit;
   bottom: 0; 
   clear:both;
-  padding-top:20px;
-  background-color: black;
+  padding-top:10px;
 } 
 
-.col-md-10.pig-error {
-margin-top: 300px;
-	margin:auto;
-}
 
-.info-image {
-	width: 900px;
-	margin-left:150px;
-	height: 350px;
-}
-
-#info-title {
-	margin-left:450px;
-}
-
-.about-image {
-	width:220px;
-	height:200px;
-	margin:auto;
-}
-
-.info-text {
-	margin-left: 30px;
-}
-
-p.info-extra {
-	width: 80%;
-	text-align: justify;
-}

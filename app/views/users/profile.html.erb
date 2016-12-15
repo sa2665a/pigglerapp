@@ -3,7 +3,8 @@
       <div class="container">
         <h1>Hello, <%= current_user.name %> !</h1>
         <strong>Email:</strong> <%= current_user.email %>
-        <p id="welcome">Welcome to Piggler, get cash delivered to you in minutes </p>
+        <p id="welcome">Welcome to Piggler, get cash delivered to you in minutes 
+          <%=link_to image_tag("/money.png", :class => "money"), "/users/#{@user.id}/orders/new" %></p>
         <a class="btn btn-primary" href="/pages/info" role="button">Learn more »</a> 
       </div>
 </div>
@@ -12,19 +13,18 @@
       <div class="row">
           <div class="col-md-6">
             <%=link_to image_tag("/user.png"), "/users/#{@user.id}/orders/new" %>
-            <h2>Request Cash!</h2>
-            <div class = "col-md-8 info-text">
-              <p id="text-intro">Need cash? Ask for cash to people around you. The Piggy Banks in your area will deliver the amount you requested as soon as possible.</p>
-            </div>
+            <h2 class="requests">Request Cash!</h2>
+              <div class = "col-md-8 info-text">
+                <p id="text-intro">Need cash? Ask for cash to people around you. The Piggy Banks in your area will deliver the amount you requested as soon as possible.</p>
+              </div>
               <%= link_to "Request Cash", "/users/#{@user.id}/orders/new", :class => "btn btn-success"%>
           </div>
-        
-        <div class="col-md-6">
+        <div class="col-md-6 ">
            <%=link_to image_tag("/deliver.png"), "/users/#{@user.id}/piggy_orders/" %>
-          <h2>Deliver Cash!</h2>
-          <div class = "col-md-8 info-text">
-            <p id="text-intro"> Do you have cash with you and want to lend it to someone near by? Just enter in here and see who is in your area in need of cash. </p>
-          </div>
+          <h2 class="requests">Deliver Cash!</h2>
+            <div class = "col-md-8 info-text">
+              <p id="text-intro"> Do you have cash with you and want to lend it to someone near by? Just enter in here and see who is in your area in need of cash. </p>
+            </div>
             <%= link_to "Deliver Cash", "/users/#{@user.id}/piggy_orders/", :class => "btn btn-success"%>
        </div>
       </div>

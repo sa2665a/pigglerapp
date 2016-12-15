@@ -1,3 +1,55 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.index-text {
+	margin-left: 50px;
+	margin-bottom: 20px;
+}
+
+.current {
+	margin-left: 50px;
+}
+
+#error {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 28px;
+}
+
+.col-md-10.pig-error {
+	margin-top: 300px;
+	margin:auto;
+}
+
+.money {
+	width:200px;
+	height:130px;
+	float:right;
+	margin-right:100px;
+}
+
+.locate {
+	display:block;
+	width:150px;
+	height:150px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:30px;
+}
+
+.leaderboard {
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+.post {
+	margin-left: 20px;
+}
+
+.approx {
+	margin-left:20px;
+}

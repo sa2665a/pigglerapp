@@ -1,12 +1,10 @@
     
-<h2>Request a Piggy Bank</h2>
+<h2 class="current">Request a Piggy Bank</h2>
   <div>
   	<div id="input-wrapper">
-       					What is your location?
-          			<input type="text" name="get-places" id="get-places"> 
+      <span>What is your location?<input type="text" name="get-places" id="get-places"></span> 
     </div>	
-  		<div id="map" style="width: 60%; height: 400px; margin:auto"> </div>
-  		
+     <div id="map" style="width: 60%; height: 365px; margin:auto"> </div>
       <div id= "input-wrapper">
   		
   			<%= form_for [@user, @order]  do |f| %>
@@ -21,14 +19,14 @@
               <% end %>
             </ul>
           <% end %>
-    				<%= f.label "Location" %> 
-    				<%= f.text_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
+          <div class="amount-text">
+    				<%= f.hidden_field :source, readonly: true, :style=>"background-color : #e5e0e5" %>
     				<%= f.label "Amount: $" %>
     				<%= f.number_field :amount, placeholder: "Maximum of $200" %>
-    				<%= f.button "Request Piggy", :onclick => "validateField();", :class => "btn btn-success"%>
+    				<%= f.button "Request Piggy", :onclick => "validateField();", :class => "btn btn-success2"%>
+            </div>
   			<% end %>	
       </div>
-    <hr>
   </div>
 
 

@@ -17,4 +17,9 @@ RSpec.describe Order, type: :model do
 	  expect(order).not_to be_valid
 	end
 
+	it "is valid if its less than 200" do 
+		order.amount = 100
+		expect(order).to be_valid
+	end
+
 end

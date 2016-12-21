@@ -4,4 +4,5 @@ FactoryGirl.define do
 	  amount 15
 	  user
 	end
+
 end
